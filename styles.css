@@ -48,3 +48,7 @@ article {
     flex: 0 0 12em;
     border: 1px solid gray;
 }
+
+#editor-tools > h3 {
+    margin: 10px;
+}
