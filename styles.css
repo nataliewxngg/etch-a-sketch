@@ -17,39 +17,34 @@ body {
 }
 
 article {
+    align-self: stretch;
+
     margin: 10px;
     display: flex;
+    justify-content: center;
     gap: 10px;
-    flex-wrap: wrap;
 }
 
 #container {
-    flex: 0 0 auto;
+    flex: 0 0 30em;
 
     display: flex;
     flex-direction: column;
     border: 1px solid gray;
-
-    width: 30em;
     height: 30em;
 }
 
 #row {
-    flex: 1; /* flex: 1 1 0; */
+    flex: 1;
     display: flex;
 }
 
 #row > div {
-    border: 1px solid lightgray;
     flex: 1;
-}
-
-article {
-    display: flex;
+    border: 1px solid lightgray;
 }
 
 #editor-tools {
-    width: 12em;
-    height: 30em;
+    flex: 0 0 12em;
     border: 1px solid gray;
 }
