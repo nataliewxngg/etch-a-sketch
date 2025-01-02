@@ -63,3 +63,50 @@ article {
     flex: 0 0 12em;
     border: 1px solid gray;
 }
+
+#editor-tools > h3 {
+    margin: 10px;
+}
+
+#color-picker {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    margin: 15px;
+}
+
+#color-picker > input {
+    border: 1px solid gray;
+    padding: 0px 3px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+#recent-1, #recent-2 {
+    padding: 8px 13px;
+    border: 1px solid gray;
+    border-radius: 100%;
+    background: white;
+}
+
+#editor-tools > button {
+    border: 1px solid gray;
+    padding: 4px 13px;
+    border-radius: 8px;
+    transition: 0.4s;
+}
+
+#editor-tools > button:hover {
+    background: rgb(182, 181, 181);
+}
+
+#editor-tools > button.clicked {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+/* 
+input[type="range"] {
+    width: 120px;
+    accent-color: rgb(52, 52, 52);
+    margin-top: 2px;
+} */
