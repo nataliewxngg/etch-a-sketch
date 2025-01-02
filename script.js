@@ -1,5 +1,5 @@
 // VARIABLES
-const container = document.getElementById("container");
+const container = document.querySelector("#container");
 let dimension = 16;
 
 // FUNCTIONS
