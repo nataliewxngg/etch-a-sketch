@@ -9,6 +9,15 @@ let recents = [undefined, undefined];
 recent1.addEventListener("click", () => colorPicker.value = recents[0]);
 recent2.addEventListener("click", () => colorPicker.value = recents[1]);
 
+const eraseButton = document.getElementById("eraser");
+let erasing = false;
+let enableEraser = false;
+
+eraseButton.addEventListener("click", () => {
+    erasing = !erasing;
+    eraseButton.classList.toggle("clicked");
+});
+
 let dimension = 16;
 let enableDraw = false;
 
@@ -37,18 +46,31 @@ function createRow() {
 
         pixel.addEventListener("mousedown", (e) => {
             e.preventDefault(); // prevents mouse from becoming "block" icon 
-            enableDraw = true;
-            addRecent();
-            pixel.style["background"] = colorPicker.value;
-            pixel.style["border"] = `1px solid ${colorPicker.value}`;
-        });
-        pixel.addEventListener("mouseup", () => {
-            enableDraw = false;
-        });
-        pixel.addEventListener("mouseover", () => {
-            if (enableDraw) {
+            if (!erasing) {
+                enableDraw = true;
+                addRecent();
                 pixel.style["background"] = colorPicker.value;
                 pixel.style["border"] = `1px solid ${colorPicker.value}`;
+            } else {
+                enableEraser = true;
+                pixel.style["background"] = "white";
+                pixel.style["border"] = "1px solid lightgray";
+            }
+        });
+        pixel.addEventListener("mouseup", () => {
+            if (!erasing) {
+                enableDraw = false;
+            } else {
+                enableEraser = false;
+            }
+        });
+        pixel.addEventListener("mouseover", () => {
+            if (enableDraw && !erasing) {
+                pixel.style["background"] = colorPicker.value;
+                pixel.style["border"] = `1px solid ${colorPicker.value}`;
+            } else if (enableEraser && erasing) {
+                pixel.style["background"] = "white";
+                pixel.style["border"] = "1px solid lightgray";
             }
         });
         row.appendChild(pixel);
