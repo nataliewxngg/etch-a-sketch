@@ -16,7 +16,23 @@ let enableEraser = false;
 eraseButton.addEventListener("click", () => {
     erasing = !erasing;
     eraseButton.classList.toggle("clicked");
+
+    // disable all other tools
+    enableRandomColor = false;
+    randomColorButton.classList.remove("clicked");
 });
+
+const randomColorButton = document.getElementById("random-color");
+let enableRandomColor = false;
+
+randomColorButton.addEventListener("click", () => {
+    enableRandomColor = !enableRandomColor;
+    randomColorButton.classList.toggle("clicked");
+    
+    // disable all other tools
+    erasing = false;
+    eraseButton.classList.remove("clicked");
+})
 
 let dimension = 16;
 let enableDraw = false;
@@ -36,6 +52,26 @@ function addRecent() {
     recent2.style["background"] = recents[1];
 }
 
+// generates a random rgba value
+function randomRGBA() {
+    let o = Math.round;
+    let r = Math.random;
+    let s = 255;
+    return `rgba(${o(r() * s)}, ${o(r() * s)}, ${o(r() * s)})`;
+}
+
+// paints pixel with static or random color
+function draw(pixel) {
+    let color = randomRGBA();
+    if (!enableRandomColor) {
+        addRecent();
+        color = colorPicker.value;
+    } else color = randomRGBA();
+          
+    pixel.style["background"] = color;
+    pixel.style["border"] = `1px solid ${color}`;
+}
+
 // creates a singular row of dimension divs
 function createRow() {
     const row = document.createElement("div");
@@ -48,9 +84,7 @@ function createRow() {
             e.preventDefault(); // prevents mouse from becoming "block" icon 
             if (!erasing) {
                 enableDraw = true;
-                addRecent();
-                pixel.style["background"] = colorPicker.value;
-                pixel.style["border"] = `1px solid ${colorPicker.value}`;
+                draw(pixel);
             } else {
                 enableEraser = true;
                 pixel.style["background"] = "white";
@@ -65,13 +99,12 @@ function createRow() {
             }
         });
         pixel.addEventListener("mouseover", () => {
-            if (enableDraw && !erasing) {
-                pixel.style["background"] = colorPicker.value;
-                pixel.style["border"] = `1px solid ${colorPicker.value}`;
-            } else if (enableEraser && erasing) {
+            if (enableDraw && !erasing) 
+                draw(pixel);
+            else if (enableEraser && erasing) {
                 pixel.style["background"] = "white";
                 pixel.style["border"] = "1px solid lightgray";
-            }
+            } 
         });
         row.appendChild(pixel);
     }

@@ -76,7 +76,9 @@ article {
 
 #editor-tools > button {
     border: 1px solid gray;
-    padding: 4px 13px;
+    padding: 4px 0;
+    width: 110px;
+    margin: 5px;
     border-radius: 8px;
     transition: 0.4s;
 }
