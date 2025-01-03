@@ -42,7 +42,19 @@ gridLinesButton.addEventListener("click", () => {
     });
 });
 
+const dimensionSlider = document.getElementById("dimension-slider");
+dimensionSlider.value = 16;
 let dimension = 16;
+dimensionSlider.addEventListener("input", () => dimensionsText.textContent = `${dimensionSlider.value} x ${dimensionSlider.value}`);
+dimensionSlider.addEventListener("change", () => {
+    container.textContent = null;
+    dimension = dimensionSlider.value;
+    createGrid();
+})
+const dimensionsText = document.createElement("p");
+dimensionsText.textContent = `${dimension} x ${dimension}`;
+document.querySelector("#editor-tools > div").insertBefore(dimensionsText, dimensionSlider);
+
 let enableDraw = false;
 
 // FUNCTIONS
