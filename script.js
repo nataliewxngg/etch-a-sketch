@@ -20,6 +20,7 @@ let enableDraw = false;
 let enableRandomColor = false;
 dimensionSlider.value = 16; 
 let dimension = 16;
+let enableGridLines = false;
 
 const dimensionsText = document.createElement("p");
 dimensionsText.textContent = `${dimension} x ${dimension}`;
@@ -49,8 +50,8 @@ randomColorButton.addEventListener("click", () => {
 });
 
 gridLinesButton.addEventListener("click", () => {
-    const pixels = document.querySelectorAll("#row > div");
-    pixels.forEach((pixel) => pixel.classList.toggle("no-grid-lines"));
+    enableGridLines = !enableGridLines;
+    toggleGridLines();
 });
 
 dimensionSlider.addEventListener("input", () => dimensionsText.textContent = `${dimensionSlider.value} x ${dimensionSlider.value}`);
@@ -63,9 +64,15 @@ clearButton.addEventListener("click", () => recreateGrid());
 
 // FUNCTIONS
 
+function toggleGridLines() {
+    const pixels = document.querySelectorAll("#row > div");
+    pixels.forEach((pixel) => pixel.classList.toggle("no-grid-lines"));
+}
+
 function recreateGrid() {
     container.textContent = null;
     createGrid();
+    if (enableGridLines) toggleGridLines();
 }
 
 function randomRGBA() {
