@@ -103,7 +103,7 @@ footer > button:hover {
 
 input[type=range] {
     accent-color: rgb(53, 53, 53);
-    width: 110px;
+    width: 105px;
 }
 
 #row > div.no-grid-lines {
@@ -113,10 +113,3 @@ input[type=range] {
 footer {
     margin: 10px;
 }
-
-/* 
-input[type="range"] {
-    width: 120px;
-    accent-color: rgb(52, 52, 52);
-    margin-top: 2px;
-} */

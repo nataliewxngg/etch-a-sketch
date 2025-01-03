@@ -50,10 +50,16 @@ dimensionSlider.addEventListener("change", () => {
     container.textContent = null;
     dimension = dimensionSlider.value;
     createGrid();
-})
+});
 const dimensionsText = document.createElement("p");
 dimensionsText.textContent = `${dimension} x ${dimension}`;
 document.querySelector("#editor-tools > div").insertBefore(dimensionsText, dimensionSlider);
+
+const clearButton = document.getElementById("clear");
+clearButton.addEventListener("click", () => {
+    container.textContent = null;
+    createGrid();
+});
 
 let enableDraw = false;
 
