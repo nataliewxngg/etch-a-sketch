@@ -32,7 +32,15 @@ randomColorButton.addEventListener("click", () => {
     // disable all other tools
     erasing = false;
     eraseButton.classList.remove("clicked");
-})
+});
+
+const gridLinesButton = document.getElementById("grid-lines");
+gridLinesButton.addEventListener("click", () => {
+    const pixels = document.querySelectorAll("#row > div");
+    pixels.forEach((pixel) => {
+        pixel.classList.toggle("no-grid-lines");
+    });
+});
 
 let dimension = 16;
 let enableDraw = false;
@@ -79,6 +87,7 @@ function createRow() {
 
     for (let i = 0; i < dimension; ++i) {
         const pixel = document.createElement("div");
+        pixel.style["background"] = "white";
 
         pixel.addEventListener("mousedown", (e) => {
             e.preventDefault(); // prevents mouse from becoming "block" icon 
