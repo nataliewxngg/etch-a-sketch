@@ -1,5 +1,7 @@
+<div>
 <img src="screenshots/blank.png" width="370">
 <img src="screenshots/example.png" width="370">
+</div>
 
 <h1>Etch-a-Sketch</h1>
 <p>Natalie Wong | January 7, 2025</p>
