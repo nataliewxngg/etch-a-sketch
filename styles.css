@@ -14,11 +14,17 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    background-color: whitesmoke;
 }
 
+header > h1 { font-size: 3rem; font-weight: 350; }
+header > h3 { font-size: 1.4rem; }
+
 a {
-    line-height: 20px;
+    line-height: 0.5rem;
     text-decoration: none;
+    font-size: 1.6rem;
 }
 
 a:link , a:visited {
@@ -28,10 +34,10 @@ a:link , a:visited {
 
 a:hover {
     color: rgb(61, 61, 61);
-    font-size: 20px;
+    font-size: 1.9rem;
 }
 
-header, footer { margin: 5px; }
+header, footer { margin: 8px; }
 
 article {
     align-self: stretch;
@@ -43,12 +49,12 @@ article {
 }
 
 #container {
-    flex: 0 0 30em;
+    flex: 0 0 35em;
 
     display: flex;
     flex-direction: column;
     border: 1px solid gray;
-    height: 30em;
+    height: 35em;
 }
 
 #row {
@@ -72,7 +78,7 @@ article {
     border: 1px solid gray;
 }
 
-#editor-tools > div > h3 { margin: 10px; }
+#editor-tools > div > h3 { margin: 20px; font-size: 1.4rem; }
 
 #color-picker {
     display: flex;
@@ -99,11 +105,14 @@ article {
 footer > button {
     border: 1px solid gray;
     padding: 4px 0;
-    width: 110px;
+    width: 120px;
     margin: 5px;
     border-radius: 8px;
-    transition: 0.4s;
+    transition: 0.6s;
+    font-size: 0.9rem;
 }
+
+footer > button { margin: 20px; }
 
 #editor-tools > div > button:hover,
 footer > button:hover { background: rgb(182, 181, 181); }
@@ -116,3 +125,5 @@ input[type=range] {
     accent-color: rgb(53, 53, 53);
     width: 105px;
 }
+
+footer > p { font-size: 0.9rem; }

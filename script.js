@@ -24,6 +24,8 @@ let enableGridLines = false;
 
 const dimensionsText = document.createElement("p");
 dimensionsText.textContent = `${dimension} x ${dimension}`;
+dimensionsText.style["font-size"] = "1.1rem";
+dimensionsText.style["margin-top"] = "10px";
 document.querySelector("#editor-tools > div").insertBefore(dimensionsText, dimensionSlider);
 
 // EVENT LISTENERS
@@ -32,6 +34,8 @@ recent1.addEventListener("click", () => colorPicker.value = recents[0]);
 recent2.addEventListener("click", () => colorPicker.value = recents[1]);
 
 eraseButton.addEventListener("click", () => {
+    enableDraw = enableEraser = false; // prevents bug with user dragging mouse prior to toggling eraser
+
     erasing = !erasing;
     eraseButton.classList.toggle("clicked");
 
@@ -41,6 +45,8 @@ eraseButton.addEventListener("click", () => {
 });
 
 randomColorButton.addEventListener("click", () => {
+    enableDraw = enableEraser = false; // prevents bug with user dragging mouse prior to toggling eraser
+
     enableRandomColor = !enableRandomColor;
     randomColorButton.classList.toggle("clicked");
     
@@ -50,6 +56,8 @@ randomColorButton.addEventListener("click", () => {
 });
 
 gridLinesButton.addEventListener("click", () => {
+    enableDraw = enableEraser = false; // prevents bug with user dragging mouse prior to toggling eraser
+
     enableGridLines = !enableGridLines;
     toggleGridLines();
 });
@@ -126,6 +134,7 @@ function createRow() {
 
     for (let i = 0; i < dimension; ++i) {
         const pixel = document.createElement("div");
+        pixel.style["background"] = "white";
 
         pixel.addEventListener("mousedown", (e) => {
             e.preventDefault(); // prevents mouse from becoming "block" icon 
