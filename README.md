@@ -1,5 +1,5 @@
-<img src="screenshots/blank.png" width="100%">
-<img src="screenshots/example.png" width="100%">
+<img src="screenshots/blank.png" width="410">
+<img src="screenshots/example.png" width="410">
 
 <h1>Etch-a-Sketch</h1>
 <p>Natalie Wong | January 7, 2025</p>
