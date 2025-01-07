@@ -113,7 +113,7 @@ function draw(pixel) {
 
 function erase(pixel) {
     pixel.style["background"] = "white";
-    pixel.style["border"] = "1px solid lightgray";
+    (enableGridLines) ? pixel.style["border-color"] = "transparent" : pixel.style["border"] = "1px solid lightgray";
 }
 
 // creates a singular row of 'dimension' divs
@@ -131,7 +131,7 @@ function createRow() {
                 draw(pixel);
             } else {
                 enableEraser = true;
-                erase();
+                erase(pixel);
             }
         });
         pixel.addEventListener("mouseup", () => {
@@ -144,7 +144,7 @@ function createRow() {
         pixel.addEventListener("mouseover", () => {
             if (enableDraw && !erasing)
                 draw(pixel);
-            else if (enableEraser && erasing) erase();
+            else if (enableEraser && erasing) erase(pixel);
         });
         row.appendChild(pixel);
     }
