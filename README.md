@@ -1,6 +1,6 @@
 <div>
-<img src="screenshots/blank.png" width="390">
-<img src="screenshots/example.png" width="390">
+<img src="screenshots/blank.png" width="410">
+<img src="screenshots/example.png" width="410">
 </div>
 
 <h1>Etch-a-Sketch</h1>
