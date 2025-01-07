@@ -66,7 +66,10 @@ clearButton.addEventListener("click", () => recreateGrid());
 
 function toggleGridLines() {
     const pixels = document.querySelectorAll("#row > div");
-    pixels.forEach((pixel) => pixel.classList.toggle("no-grid-lines"));
+    pixels.forEach((pixel) => {
+        pixel.style["border"] = "";
+        pixel.classList.toggle("no-grid-lines");
+    });
 }
 
 function recreateGrid() {
